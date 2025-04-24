@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek Meshram's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS for animations */
+      #about h2,
+#projects h2,
+#contact h2,
+#todo-app h2,
+#product-list h2 {
+    animation: fadeIn 1s ease forwards, slideIn 0.5s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+        #projects .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #projects .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 10px -2px rgba(0, 0, 0, 0.15);
+        }
+
+        .todo-item {
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .todo-item:hover {
+            background-color: #f7fafc;
+            transform: translateX(4px);
+        }
+
+        .product-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-inter">
+    <header class="bg-blue-600 text-white fixed w-full top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold">Abhishek Meshram</a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#about" class="hover:text-blue-200 transition duration-300">About</a></li>
+                    <li><a href="#projects" class="hover:text-blue-200 transition duration-300">Projects</a></li>
+                    <li><a href="#todo-app" class="hover:text-blue-200 transition duration-300">Todo App</a></li>
+                    <li><a href="#product-list" class="hover:text-blue-200 transition duration-300">Product List</a></li>
+                    <li><a href="#contact" class="hover:text-blue-200 transition duration-300">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="hamburger-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle Navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-90 z-50">
+        <div class="bg-gray-800 w-80 h-full absolute right-0 p-6">
+            <div class="flex justify-end mb-4">
+                <button id="close-menu-btn" class="text-white focus:outline-none" aria-label="Close Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <nav class="block">
+                <ul class="space-y-4">
+                    <li><a href="#about" class="block text-lg text-white hover:text-blue-200 transition duration-300">About</a></li>
+                    <li><a href="#projects" class="block text-lg text-white hover:text-blue-200 transition duration-300">Projects</a></li>
+                    <li><a href="#todo-app" class="block text-lg text-white hover:text-blue-200 transition duration-300">Todo App</a></li>
+                    <li><a href="#product-list" class="block text-lg text-white hover:text-blue-200 transition duration-300">Product List</a></li>
+                    <li><a href="#contact" class="block text-lg text-white hover:text-blue-200 transition duration-300">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <main class="pt-20 pb-10 container mx-auto px-4">
+        <section id="about" class="mb-16">
+            <h2 class="text-3xl font-semibold text-blue-700 text-center mb-8">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/3"><img src="C:\Users\Abhishek\Desktop\Profile.jpg" alt="Abhishek Meshram" class="rounded-lg shadow-lg">
+                </div>
+                <div class="md:w-2/3 text-gray-700">
+                    <p class="text-lg mb-4">
+                        Hello! I'm Abhishek Meshram, a passionate Software and Web Developer.
+                        I love creating softwares and webpages, and I'm always eager to learn new things.
+                    </p>
+                    <p class="text-lg mb-4">
+                        My goal is to become a Software Engineer.
+                    </p>
+                    <p class="text-lg">
+                        When I'm not working, you can find me designing softwares and apps, and playing outdoor games. I'm excited to connect with you!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="mb-16">
+            <h2 class="text-3xl font-semibold text-blue-700 text-center mb-8">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <img src="C:\Users\Abhishek\Desktop\Task 1.png" alt="Task 1 Image" class="rounded-lg mb-4 w-full">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Basics of Web Development</h3>
+                    <p class="text-gray-600 mb-4">
+                        Learned and applied foundational HTML, CSS, and JavaScript concepts.
+                    </p>
+                    <a href="#" class="text-blue-500 hover:text-blue-700 transition duration-300 inline-flex items-center">
+                        Learn More
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 ml-1">
+                            <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04 1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 11-1.08-1.08l3.162-2.96H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="project-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+<img src="C:\Users\Abhishek\Desktop\Task 2.png" alt="Task 1 Image" class="rounded-lg mb-4 w-full">                    
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Intermediate HTML, CSS, and JavaScript</h3>
+                    <p class="text-gray-600 mb-4">
+                        Enhanced HTML and CSS skills, and learned JavaScript for DOM manipulation.
+                    </p>
+                    <a href="#" class="text-blue-500 hover:text-blue-700 transition duration-300 inline-flex items-center">
+                        Learn More
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 ml-1">
+                            <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04 1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 11-1.08-1.08l3.162-2.96H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="project-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <img src="C:\Users\Abhishek\Desktop\Task 3.png" alt="Task 1 Image" class="rounded-lg mb-4 w-full">
+ <h3 class="text-xl font-semibold text-gray-800 mb-2">Advanced Styling and JavaScript</h3>
+                    <p class="text-gray-600 mb-4">
+                        Gained advanced skills in CSS and JavaScript for building interactive, responsive sites.
+                    </p>
+                    <a href="#" class="text-blue-500 hover:text-blue-700 transition duration-300 inline-flex items-center">
+                        Learn More
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 ml-1">
+                            <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04 1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 11-1.08-1.08l3.162-2.96H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="todo-app" class="mb-16">
+            <h2 class="text-3xl font-semibold text-blue-700 text-center mb-8">To-Do List App</h2>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex flex-col sm:flex-row gap-4 mb-4">
+                    <input type="text" id="todo-input" placeholder="Add a new task..." class="flex-grow rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
+                    <button id="add-todo-button" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">Add Task</button>
+                </div>
+                <ul id="todo-list" class="space-y-3">
+                    </ul>
+            </div>
+        </section>
+
+        <section id="product-list" class="mb-16">
+            <h2 class="text-3xl font-semibold text-blue-700 text-center mb-8">Product Listing Page</h2>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex flex-col md:flex-row gap-4 mb-6">
+                    <div class="md:w-1/2 flex flex-col sm:flex-row gap-4">
+                        <select id="category-filter" class="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
+                            <option value="">All Categories</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="clothing">Clothing</option>
+                            <option value="home">Home Goods</option>
+                        </select>
+                        <div class="flex items-center space-x-2">
+                            <label for="min-price" class="text-gray-700">Min:</label>
+                            <input type="number" id="min-price" class="w-24 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2" value="0">
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <label for="max-price" class="text-gray-700">Max:</label>
+                            <input type="number" id="max-price" class="w-24 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2" value="100000">
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex items-center gap-4">
+                        <label for="sort-by" class="text-gray-700">Sort By:</label>
+                        <select id="sort-by" class="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
+                            <option value="name">Name</option>
+                            <option value="price">Price</option>
+                            <option value="rating">Rating</option>
+                        </select>
+                        <button id="clear-filter-button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50">
+                            Clear Filter
+                        </button>
+                    </div>
+                </div>
+                <div id="product-list-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-<div id="product-list-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    </div>
+                </div>
+            </div>
+        </section><section id="contact" class="mb-16">
+            <h2 class="text-3xl font-semibold text-blue-700 text-center mb-8">Contact Me</h2>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <form id="contact-form" class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+                        <input type="text" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Your Name">
+                        <p id="name-error" class="text-red-500 text-xs italic" style="display: none;"></p>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                        <input type="email" id="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Your Email">
+                        <p id="email-error" class="text-red-500 text-xs italic" style="display: none;"></p>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message:</label>
+                        <textarea id="message" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-32 resize-y" placeholder="Your Message"></textarea>
+                        <p id="message-error" class="text-red-500 text-xs italic" style="display: none;"></p>
+                    </div>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Send Message</button>
+                    <p id="form-message" class="text-green-500 text-center font-semibold" style="display: none;"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-4 text-center">
+        <p>© 2024 Abhishek Meshram. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const closeMenuBtn = document.getElementById("close-menu-btn");
+        const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const sections = document.querySelectorAll('section');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle("hidden");
+        }
+
+        hamburgerBtn.addEventListener("click", toggleMobileMenu);
+        closeMenuBtn.addEventListener("click", toggleMobileMenu);
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener("click", toggleMobileMenu);
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(event.target) && event.target !== hamburgerBtn) {
+                toggleMobileMenu();
+            }
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // --- To-Do List App Logic ---
+        const todoInput = document.getElementById('todo-input');
+        const addTodoButton = document.getElementById('add-todo-button');
+        const todoList = document.getElementById('todo-list');
+
+        let todos = JSON.parse(localStorage.getItem('todos')) || [];
+
+        function renderTodos() {
+            todoList.innerHTML = '';
+            todos.forEach((todo, index) => {
+                const listItem = document.createElement('li');
+                listItem.className = "todo-item bg-white rounded-md shadow-sm py-2 px-3 flex justify-between items-center";
+                listItem.innerHTML = `
+                    <span class="${todo.completed ? 'line-through text-gray-400' : ''}">${todo.text}</span>
+                    <div class="space-x-2">
+                        <button class="complete-btn bg-green-500 hover:bg-green-700 text-white font-semibold rounded-md py-1 px-2 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" data-index="${index}">Complete</button>
+                        <button class="delete-btn bg-red-500 hover:bg-red-700 text-white font-semibold rounded-md py-1 px-2 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50" data-index="${index}">Delete</button>
+                    </div>
+                `;
+                todoList.appendChild(listItem);
+            });
+        }
+
+        function addTodo() {
+            const text = todoInput.value.trim();
+            if (text !== '') {
+                todos.push({ text, completed: false });
+                localStorage.setItem('todos', JSON.stringify(todos));
+                renderTodos();
+                todoInput.value = '';
+            }
+        }
+
+        function toggleComplete(index) {
+            todos[index].completed = !todos[index].completed;
+            localStorage.setItem('todos', JSON.stringify(todos));
+            renderTodos();
+        }
+
+        function deleteTodo(index) {
+            todos.splice(index, 1);
+            localStorage.setItem('todos', JSON.stringify(todos));
+            renderTodos();
+        }
+
+        todoList.addEventListener('click', (event) => {
+            if (event.target.classList.contains('complete-btn')) {
+                const index = event.target.dataset.index;
+                toggleComplete(index);
+            }
+            if (event.target.classList.contains('delete-btn')) {
+                const index = event.target.dataset.index;
+                deleteTodo(index);
+            }
+        });
+
+        addTodoButton.addEventListener('click', addTodo);
+        renderTodos();
+
+        // --- Product Listing Page Logic ---
+        const productListContainer = document.getElementById('product-list-container');
+        const categoryFilter = document.getElementById('category-filter');
+        const minPriceInput = document.getElementById('min-price');
+        const maxPriceInput = document.getElementById('max-price');
+        const sortBySelect = document.getElementById('sort-by');
+        const clearFilterButton = document.getElementById('clear-filter-button');
+
+        let products = [
+            { id: 1, name: 'Laptop', category: 'electronics', price: 80000, rating: 4.5, description: 'Powerful laptop for work and play.', image: 'Images/Laptop.jpg' },
+            { id: 2, name: 'T-Shirt', category: 'clothing', price: 1000, rating: 4.2, description: 'Comfortable cotton t-shirt.', image: 'Images/T-Shirt.jpg' },
+            { id: 3, name: 'Table Lamp', category: 'home', price: 2000, rating: 4.8, description: 'Stylish lamp for your desk.', image: 'Images/Table Lamp.jpg' },
+            { id: 4, name: 'Smartphone', category: 'electronics', price: 70000, rating: 4.7, description: 'Latest smartphone with great features.', image: 'Images/Smartphone.jpg' },
+            { id: 5, name: 'Jeans', category: 'clothing', price: 2500, rating: 4.0, description: 'Durable denim jeans.', image: 'Images/Jeans.jfif' },
+            { id: 6, name: 'Sofa', category: 'home', price: 20000, rating: 4.6, description: 'Cozy sofa for your living room.', image: 'Images/Sofa.jfif' },
+            { id: 7, name: 'Wireless Mouse', category: 'electronics', price: 1500, rating: 4.3, description: 'Ergonomic wireless mouse.', image: 'Images/Wireless Mouse.jpg' },
+            { id: 8, name: 'Sweater', category: 'clothing', price: 1800, rating: 4.1, description: 'Warm and comfortable sweater.', image: 'Images/Sweater.jpg' },
+            { id: 9, name: 'Coffee Table', category: 'home', price: 5000, rating: 4.5, description: 'Modern coffee table for your living space.', image: 'Images/Coffee Table.jpg' }
+        ];
+
+                function renderProducts(productList) {
+            productListContainer.innerHTML = '';
+            productList.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-200';
+                productCard.innerHTML = `
+                    <div style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <img src="${product.image}" alt="${product.name}" class="rounded-md max-w-full max-h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1">${product.name}</h3>
+                    <p class="text-gray-600 mb-1">₹${product.price}</p>
+                    <p class="text-gray-500 text-sm">Rating: ${product.rating}</p>
+                `;
+                productListContainer.appendChild(productCard);
+            });
+        }
+
+
+        function filterProducts() {
+            const category = categoryFilter.value;
+            const minPrice = parseFloat(minPriceInput.value) || 0;
+            const maxPrice = parseFloat(maxPriceInput.value) || Infinity;
+
+            const filteredProducts = products.filter(product => {
+                return (category === '' || product.category === category) &&
+                       product.price >= minPrice &&
+                       product.price <= maxPrice;
+            });
+            sortAndRenderProducts(filteredProducts);
+        }
+
+        function sortAndRenderProducts(productList) {
+            const sortBy = sortBySelect.value;
+            let sortedProducts = [...productList];
+
+            sortedProducts.sort((a, b) => {
+                if (sortBy === 'name') {
+                    return a.name.localeCompare(b.name);
+                } else if (sortBy === 'price') {
+                    return a.price - b.price;
+                } else if (sortBy === 'rating') {
+                    return b.rating - a.rating;
+                }
+                return 0;
+            });
+            renderProducts(sortedProducts);
+        }
+
+        function clearFilters() {
+            categoryFilter.value = '';
+            minPriceInput.value = '0';
+            maxPriceInput.value = '100000';
+            sortAndRenderProducts(products);
+        }
+
+        categoryFilter.addEventListener('change', filterProducts);
+        minPriceInput.addEventListener('input', filterProducts);
+        maxPriceInput.addEventListener('input', filterProducts);
+        sortBySelect.addEventListener('change', () => filterProducts());
+        clearFilterButton.addEventListener('click', clearFilters);
+
+        sortAndRenderProducts(products);
+
+        // --- Contact Form Logic ---
+        const contactForm = document.getElementById('contact-form');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const nameError = document.getElementById('name-error');
+        const emailError = document.getElementById('email-error');
+        const messageError = document.getElementById('message-error');
+        const formMessage = document.getElementById('form-message');
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            let isValid = true;
+
+            if (nameInput.value.trim() === '') {
+                nameError.textContent = 'Name is required.';
+                nameError.style.display = 'block';
+                isValid = false;
+            } else {
+                nameError.style.display = 'none';
+            }
+
+            if (emailInput.value.trim() === '') {
+                emailError.textContent = 'Email is required.';
+                emailError.style.display = 'block';
+                isValid = false;
+            } else if (!isValidEmail(emailInput.value.trim())) {
+                emailError.textContent = 'Invalid email format.';
+                emailError.style.display = 'block';
+                isValid = false;
+            } else {
+                emailError.style.display = 'none';
+            }
+
+            if (messageInput.value.trim() === '') {
+                messageError.textContent = 'Message is required.';
+                messageError.style.display = 'block';
+                isValid = false;
+            } else {
+                messageError.style.display = 'none';
+            }
+
+            if (isValid) {
+                // Simulate sending a message
+                console.log('Form submitted:', {
+                    name: nameInput.value,
+                    email: emailInput.value,
+                    message: messageInput.value
+                });
+                formMessage.textContent = 'Message sent successfully!';
+                formMessage.style.display = 'block';
+                contactForm.reset();
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 3000);
+            }
+        });
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</body>
+</html>
